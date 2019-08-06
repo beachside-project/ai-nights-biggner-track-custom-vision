@@ -21,7 +21,7 @@
 * **Task 1:** Microsoft Azure Cognitive Services - Custom Vision [Go to Section](#task-1-microsoft-azure-cognitive-services---custom-vision)
 * **Task 2:** 独自の AI をアプリケーションに組み込む - Azure Logic Apps [Go to Section](#task-2-build-custom-ai-into-an-application---azure-logic-apps)
 
-> このコンテンツが役に立ちそうでしたら、**ボーナスコンテンツ**に進んでみましょう: **[ボーナスコンテンツはこちら](bonus-content.md)**
+> このコンテンツが役に立ちそうでしたら、**ボーナスコンテンツ**に進んでみましょう: [**ボーナスコンテンツはこちら**](bonus-content.md)
 
 ## Task 1: Microsoft Azure Cognitive Services - Custom Vision
 
@@ -323,13 +323,13 @@ Blob コンテンツでは、フィールドをクリックして '動的なコ�
 
 ## BONUS コンテンツが利用できます
 
-このセッションをお楽しみいただき、より詳細を知りたい場合は、次の[ボーナスコンテンツ](bonus-content.md)をご覧ください。
+このセッションをお楽しみいただき、Azure Cognitive Services の詳細をもっと知りたい場合は、以下の3つのトピックについての[ボーナスコンテンツ](bonus-content.md)を用意しています。
 
-* [Azure Cognitive Services を活用する](https://docs.microsoft.com/en-us/azure/cognitive-services/?WT.mc_id=beginnertrack-globalainights-amynic)
-* [Cognitive Services in Containers](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-container-support/?WT.mc_id=beginnertrack-globalainights-amynic)
-* [Microsoft PowerApps の構築](https://docs.microsoft.com/en-us/powerapps/#pivot=home&panel=maker/?WT.mc_id=beginnertrack-globalainights-amynic)
+* [Azure Cognitive Services を活用する](https://docs.microsoft.com/ja-jp/azure/cognitive-services/)
+* [Cognitive Services in Containers](https://docs.microsoft.com/ja-jp/azure/cognitive-services/cognitive-services-container-support)
+* [Microsoft PowerApps の構築](https://docs.microsoft.com/ja-jp/powerapps/#pivot=home&panel=maker/)
 
- **[こちら](bonus-content.md)**からご覧ください！
+ボーナスコンテンツは [**こちら**](bonus-content.md) からご覧ください！
 
 ## Clean up resources
 
