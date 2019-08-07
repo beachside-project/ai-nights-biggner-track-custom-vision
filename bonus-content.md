@@ -1,37 +1,51 @@
-# AI Nights **BONUS** Content - Beginner Track
+# AI Nights **ボーナス** コンテンツ - Beginner Track
 
-## Pre-requisites for your machine
-* Clone this repository to your local machine to gain images and code samples you need for the demos: ```git clone https://github.com/amynic/ainights-sessionowners.git```
-* [Microsoft Azure Subscription](https://azure.microsoft.com/en-gb/free/?WT.mc_id=ainights-github-amynic)
-* Laptop with a modern web browser (Google Chrome, Microsoft Edge)
-* [Postman, API Development Environment - available on Windows, Linux and macOS](https://www.getpostman.com/downloads/)
-* [Download docker for your local machine - available on Windows, Linux and macOS](https://docs.docker.com/docker-for-windows/)
+## マシンの前提条件
 
-> *All demos and content have been tested on a Windows PC, however all options should run from macOS and Linux machines as well. Please provide information via an issue or pull request if you have feedback on other operating systems*  
+* デモに必要な画像とコードサンプルを入手するために、このリポジトリをあなたのローカルマシンにクローンしてください。
 
-## Go to sections:
+  ```:bash
+  git clone https://github.com/amynic/ainights-sessionowners.git
+  ```
 
-* **Task A:** Microsoft Azure Cognitive Services - Computer Vision [Go to Section](#task-a-microsoft-azure-cognitive-services---computer-vision)
-* **Task B:** Microsoft Azure Cognitive Services - Text Analytics in a Container [Go to Section](#task-b-microsoft-azure-cognitive-services---text-analytics-in-a-container)
-* **Task C:** Microsoft PowerApps [Go to Section](#task-c-microsoft-power-apps)
+* [Microsoft Azure Subscription](https://azure.microsoft.com/ja-jp/free/) をご用意下さい。
+* モダンなブラウザー (Google Chrome, Microsoft Edge) がインストールされていること。
+* [Postman](https://www.getpostman.com/downloads/) がインストールされていること。
+  * Postman は API Development Environment です。Windows, Linux や macOS で利用可能です。
+* docker がインストールされていること。
+  * [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/)
+  * [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/)
+  * [Docker Engine - Community](https://docs.docker.com/install/)
+
+> *すべてのデモやコンテンツは Windows でテストしていますが、MacOS や Linux で動作するようオプションを設定しています。もし他のオペレーティングシステムでのフィードバックがありましたら、issue やプルリクエストを通じて情報を提供いただけますと幸いです。*
+
+## セクション一覧:
+
+* **Task A:** Microsoft Azure Cognitive Services - Computer Vision [セクションへ](#task-a-microsoft-azure-cognitive-services---computer-vision)
+* **Task B:** Microsoft Azure Cognitive Services - Text Analytics in a Container [セクションへ](#task-b-microsoft-azure-cognitive-services---text-analytics-in-a-container)
+* **Task C:** Microsoft PowerApps [セクションへ](#task-c-microsoft-power-apps)
 
 ## Task A: Microsoft Azure Cognitive Services - Computer Vision
 
-In this task you will try out the Cognitive Services using the website demo options
+このタスクでは、ウェブサイトのデモオプションを使って Cognitive Services を試します。
 
-Navigate to: [https://azure.microsoft.com/en-gb/services/cognitive-services/directory/vision/](https://azure.microsoft.com/en-gb/services/cognitive-services/directory/vision/?WT.mc_id=ainights-github-amynic)
+このページを開きます: [https://azure.microsoft.com/ja-jp/services/cognitive-services/directory/vision/](https://azure.microsoft.com/ja-jp/services/cognitive-services/directory/vision/)
 
-![Computer Vision website Link highlighted](/docs-images/computer-vision-link.JPG)
+![Computer Vision website Link highlighted](/docs-images/computer-vision-link.png)
 
-There are lots of different demos to try in each section (Scene and Activity Recognition in Images, OCR, Face Detection, Emotion Detection, Video indexer etc)
+ここには、それぞれのセクションを試すためのたくさんのデモがあります。（画像内のシーンとアクティビティの認識、OCR、顔検出、表情検出、Video indexer など）
 
-Select the **Demo** link next to **Scene and activity recognition in images** under **Computer Vision**. There are also other demo links to explore the different services
+**Computer Vision** の下の **画像内のシーンおよびアクティビティ認識** のとなりの **デモ** というリンクをクリックします。（また、ここには様々なサービスを知るための他のデモのリンクもあります。）
 
-![Computer Vision Example](/docs-images/computer-vision-demo.JPG)
+![Computer Vision Example](/docs-images/computer-vision-demo.png)
 
-Now select **Browse** button and upload the **cat.jpeg** or **city.jpeg** image from ```sample-images/computer-vision-web-browser/cat.jpeg```
+ここでは、指定された画像にどのような情報があるかを検出するデモを体験できます。上図に示す画面の左側には対象の画像が表示され、検出されたオブジェクトが矩形で示されていることがわかります。また右側には検出されたデータが表示されています。
 
-![Computer Vision Cat Example](/docs-images/cat-sample.JPG)
+それでは、 **参照** ボタンをクリックし、 `sample-images/computer-vision-web-browser` ディレクトリの **cat.jpeg** または **city.jpeg** をアップロードします。
+
+例えば **cat.jpeg** をアップロードすると、下図のように猫がオブジェクトとして検出されていることがわかります。また右の欄の情報から、猫が検出された旨を読み取ることができます。
+
+![Computer Vision Cat Example](/docs-images/cat-sample.png)
 
 ## Task 2: Microsoft Azure Cognitive Services - Text Analytics via REST
 
