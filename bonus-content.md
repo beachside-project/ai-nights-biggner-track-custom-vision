@@ -49,37 +49,42 @@
 
 ## Task 2: Microsoft Azure Cognitive Services - Text Analytics via REST
 
-Now you will try using the REST protocol as you would use to integrate these services into an application
+つぎに、これらのサービスをアプリケーションに組み込むことを想定して、 REST プロトコルを用いて体験してみましょう。
 
-First log into [Microsoft Azure](https://azure.microsoft.com/en-gb/?WT.mc_id=ainights-github-amynic) and choose **Portal** in the top right corner.
+まず、[Microsoft Azure](https://azure.microsoft.com/ja-jp/) にサインインし、右角にある **ポータル** をクリックして開きます。
 
-Once in the portal select **Create a resource** and search **Cognitive Services** and choose Enter. Then select **Create** on the Cognitive Services blade
+次に、ポータルの左上にある **リソースの作成** をクリックし、検索欄で **Cognitive Services** を入力し候補から **Cognitive Services** を選択します。それから、Cognitive Services ブレードの **作成** をクリックします。
 
-![Create Cognitive Services Account](/docs-images/cognitive-azure.JPG)
+![Select Cognitive Services](/docs-images/cognitive-azure-001.png)
+![Create Cognitive Services Account](/docs-images/cognitive-azure-002.png)
 
-Enter details to create an account:
-* **Name:** enter a suitable name for the service (example: ainightscognitive)
-* **Subscription:** Choose your subscription
-* **Location:** Choose your closest Data Center available
-* **Pricing Tier:** S0
-* **Resource Group:** Select 'Create new', and provide a sensible name (example ainights)
-* **select the checkbox after reading the terms below**
-* **select 'Create'**
+Cognitive Services のアカウントを作成するために詳細を入力します:
 
-![Cognitive Services Details](/docs-images/cognitive-details.JPG)
+* **名前:** サービス名を入力する（例: ainightscognitive ）
+* **サブスクリプション:** 利用するサブスクリプションを選択する
+* **場所:** 最寄りの利用可能なデータセンターの場所を選択する（例: (アジア太平洋) 東日本）
+* **価格レベル:** S0
+* **リソースグループ:** '新規作成'をクリックし、リソースグループの名前を入力する（例: ainights ）
+* **規約を読み、「以下の通知を読み、理解しました。」のチェックボックスにチェックする**
+* **'作成' をクリックする**
 
-Once created, in your notifications (top right corner) select **go to resource**
-![Go to Resource](/docs-images/go-to-resource.JPG)
+![Cognitive Services Details](/docs-images/cognitive-details.png)
 
-In the Cognitive Services page, select **Keys** and copy **KEY 1**
-![Copy Key](/docs-images/keys.JPG)
+作成が完了したら、通知（画面右上）を開き、 **リソースに移動** をクリックします。
 
-Now select **Overview** in the left hand pane and copy the **Endpoint** variable
-![Copy Endpoint](/docs-images/endpoint.JPG)
+![Go to Resource](/docs-images/go-to-resource.png)
 
-Download and open Postman, an API Development environment on your local machine. 
-> Find the download in the [Pre-requisites section](#Pre-requisites-for-your-machine)
+Cognitive Services のページで、 **キー**　をクリックし、 **キー 1** をコピーします。
 
+![Copy Key](/docs-images/keys.png)
+
+つぎに、左ペインから **概要** を開き、エンドポイントの値をコピーします。
+
+![Copy Endpoint](/docs-images/endpoint.png)
+
+Postman をダウンロードしインストールし、ローカルマシンに API の作業環境を整えます。
+
+> Postman についてはこちら [マシンの前提条件 セクション](#マシンの前提条件) に掲載したリンクから、ダウンロードしてください。
 
 Select **Request**
 
