@@ -86,38 +86,42 @@ Postman をダウンロードしインストールし、ローカルマシンに
 
 > Postman についてはこちら [マシンの前提条件 セクション](#マシンの前提条件) に掲載したリンクから、ダウンロードしてください。
 
-Select **Request**
+Postman を開き、図中のウィンドウが表示されている場合は「Create New」タブの **Request** を選択します。ウィンドウが表示されていない場合は、左上の「New」をクリックすると表示されます。
 
 ![Create A Request](/docs-images/create-request.JPG)
 
-Enter request details as below and choose the option **create a new collection** and name it "Text Analytics Samples"
+下図のようにリクエストの詳細を入力し、 **+ Create Collection** をクリックし "Text Analytics Samples" と名前を入力します。
 
 ![Enter Request Details](/docs-images/save-request.JPG)
 
-Select the newly created collection and choose save
+作成した collection を選択し、 **Save to Text Analytics Samples** をクリックして保存します。
 
 ![Save Request](/docs-images/save.JPG)
 
-Now create a request to call your text analytics API:
-* Change from a GET request to a POST request in the top left
-* Enter your endpoint URL and add ```text/analytics/v2.0/sentiment``` to the end
-* Select Headers underneath the URL box
-* In Key type ```Ocp-Apim-Subscription-Key``` and in Value add your KEY1 value
-* In Key type ```Content-Type``` and in Value type ```application/json```
+つぎに、 Text analytics API を呼び出すリクエストを作成します:
+
+* 左上の GET リクエストを POST リクエストに変更する
+* URL入力欄に、前述でコピーしたエンドポイントの URL を入力し、続いて `text/analytics/v2.0/sentiment` を入力する
+* URL入力欄の下の Headers タブを開く
+* キーに `Ocp-Apim-Subscription-Key` を入力し、値に前述でコピーした **KEY1** を入力する
+* キーに `Content-Type` を入力し、値に `application/json` を入力する
+
 * ![Headers and URL](/docs-images/url-and-headers.JPG)
-* Select Body underneath the URL box
-* Select ```raw``` from the radio button options
-* Copy JSON sample from ```sample-code/cognitive-services-api-task/sentiment-analysis-text.json``` into the box
-* Select the ```Send``` button and review the Response
+
+* URL入力欄の下の Body タブを開く
+* `raw` のラジオボタンを選択する
+* `sample-code/cognitive-services-api-task/sentiment-analysis-text.json` の JSON をコピーし Body 入力欄にペーストする
+* `Send` ボタンをクリックし、レスポンスを確認する。ポジティブな文は `score` が高く、ネガティブな要素が含まれている文は `score` が低く判定されていることがわかります。
+
 * ![Body and Submit REST Request](/docs-images/rest-body.JPG)
 
-You can also try other options from the REST API - such as KeyPhrases function. Change the end of the URL from sentiment to keyPhrases and select send to view the key phrases for the example text.
+また、REST API からほかのオプションを試すこともできます。例えば、 KeyPhrases 機能です。 URL の末尾を `sentiment` から `keyPhrases` に変更し、 `Send` をクリックしてキーフレーズの結果を確認しましょう。
 
 * ![Key Phrases REST Request](/docs-images/keyphrases.JPG)
 
-> Check out the language support for the Text Analytics API [here](https://docs.microsoft.com/en-gb/azure/cognitive-services/text-analytics/language-support/?WT.mc_id=ainights-github-amynic). If your language is supported please edit the JSON file to translate the text and show the functionality of the API above. There is an example of a French JSON file in ```sample-code/text-analytics-demo/sentiment-analysis-text-fr.json``` please edit this file as appropriate
+> Text Analytics API の言語のサポートについては、[こちら](https://docs.microsoft.com/en-gb/azure/cognitive-services/text-analytics/language-support/)からご参照ください。もしお使いの言語がサポートされていれば、JSON ファイルを編集してテキストを翻訳し、APIの動作を確認してみて下さい。例として、フランス語の JSON ファイルが `sample-code/text-analytics-demo/sentiment-analysis-text-fr.json` です。適宜変更してください。
 
-> If you have any issues running Postman, API Development Environment you can always run the REST API requests within the API docs for [sentiment analysis](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9/?WT.mc_id=ainights-github-amynic) and [key phrase extraction](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6/?WT.mc_id=ainights-github-amynic). Select the data centre you are using and then enter your key in the box provided along with the sample body sample used in Postman
+> もし Postman を利用するにあたり問題があれば、 [sentiment analysis](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9/) や [key phrase extraction](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6/) の API ドキュメントからいつでも REST API のリクエストを発行することができます。利用しているデータセンターを選択し、Postman で利用したキーや body のサンプルを入力してご利用ください。
 
 ## Task B: Microsoft Azure Cognitive Services - Text Analytics in a Container
 
