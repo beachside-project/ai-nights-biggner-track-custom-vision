@@ -125,66 +125,72 @@ Postman を開き、図中のウィンドウが表示されている場合は「
 
 ## Task B: Microsoft Azure Cognitive Services - Text Analytics in a Container
 
-Demo based on the Azure Documentation: [Install and run Text Analytics containers](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers/?WT.mc_id=ainights-github-amynic)
+このデモはこの Azure ドキュメントに基づいたものです: [Install and run Text Analytics containers](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers/)
 
-In order to run this demo you will need Docker installed locally on your machine
-[Download docker for your local machine here - available on Windows, Linux and macOS](https://docs.docker.com/docker-for-windows/)
+このデモを実行するために、お手元のマシンに Docker をインストールする必要があります。
 
-Once the download starts you can see the information of its progress
+* [Download docker for your local machine here - available on Windows, Linux and macOS](https://docs.docker.com/docker-for-windows/)
+
+Docker のインストーラーを実行し、ダウンロードが開始されたら、このように実行状況を確認することができます。
+
 ![Docker Download](docs-images/docker-download.JPG)
 
-Once installed, run Docker (on windows type docker into the start menu and select Docker Desktop)
-Check the Docker Daemon is running on your machine.
+インストールされたら、 Docker を起動してください。（Windows の場合は、スタートメニューで `docker` と入力し、 Docker Desktop を選択します。）Docker デーモンが起動しているか確認してください。
 
-In windows you can find the icon in the bottom left toolbar near the date/time
+Windows の場合は、タスクバーの通知領域（日付と時間の表示の近く）に Docker のアイコンが表示されていれば起動できています。
 
 ![Docker Running](docs-images/docker-running.JPG)
 
-In order to run the Cognitive Services Text Analytics API locally you need to get the image for your machine. Open a command prompt within a folder on your machine (I recommend creating an AI-Nights folder if you haven't done already)
+Cognitive Services Text Analytics API をローカルで実行するために、Docker イメージを取得する必要があります。コマンドプロンプトを開き、任意のディレクトリの配下で下記コマンドを実行してください。（もし適したディレクトリがなければ、 `AI-Nights` というディレクトリを作成するとよいでしょう。）
 
-Enter the command below
+```
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+```
 
-```docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest```
-
-and the docker image should start to download to your local registry
+すると、ローカルのレジストリに対して、Docker イメージのダウンロードが開始されます。
 
 ![Docker Pull success](docs-images/docker-pull-request-success.JPG)
 
-> If you see an error similar to the below, double check your Docker Daemon is running before executing docker commands. To confirm it is running try the [Getting Started Guide from Docker Here](https://docs.docker.com/docker-for-windows/) ![Docker Error](docs-images/possible-error.JPG)
+> もし下図のようなエラーが発生する場合、 `docker` コマンドを実行する前に Docker デーモンが起動しているかをよく確認してください。確認するには [Getting Started Guide from Docker Here](https://docs.docker.com/docker-for-windows/) をお試しください。
+![Docker Error](docs-images/possible-error.JPG)
 
-Now its downloaded we want to start running the container so we can query it with text sentences and gain our sentiment scores back.
+ダウンロードが終わったら、指定した文章の感情スコアを得るためにコンテナを実行する準備をしましょう。
 
-In order to run the container you will need you **Cognitive Services Endpoint** and your **API Key** from the previous section
+コンテナを起動するためには、前章で利用した **Cognitive Services エンドポイント** と **API キー** が必要になります。
 
->if you wish to prove the container is local. Disconnect from the internet now
+> このコンテナがローカルで動いていることを確認したい場合は、インターネットの接続を切断してお試しください。
 
-The docker run command looks like below ([or is available here](sample-code/cognitive-containers/run-container-command.txt)). Substitute the data center and API key values and run
+`docker run` コマンドは、下記（または、 [このファイル](sample-code/cognitive-containers/run-container-command.txt) ）のようになります。データセンターと API キーの値は適宜置換え、実行してください。
 
-```docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://<datacenter-here>.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=<key>```
+```
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://<datacenter-here>.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=<key>
+```
 
-The container is running on your local machine
-To understand how to query the local API review the Swagger definition here: [http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
+このコンテナはあなたのローカルマシンで実行されています。
+
+クエリの詳細を把握するには、この OpenAPI（旧 Swagger）の定義を確認してください: [http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
 
 ![Swagger Definition](docs-images/swagger.JPG)
 
-To test the API, make a new postman request:
+API をテストするには、Postman で新しいリクエストを作成します:
+
 * POST
 * URL: http://localhost:5000/text/analytics/v2.0/sentiment
 * Headers:
-    * Content-Type : application/json
-    * ![Postman Request for Containers](docs-images/container-postman.JPG)
+  * Content-Type : application/json
+  * ![Postman Request for Containers](docs-images/container-postman.JPG)
 
 * Body:
-    * enter the sample JSON input from the [previous exercise](sample-code/text-analytics-demo/sentiment-analysis-text.json)
-    * ![Postman Request for Containers Result](docs-images/container-result.JPG)
+  * [前章](sample-code/text-analytics-demo/sentiment-analysis-text.json)のサンプル JSON を入力します
+  * ![Postman Request for Containers Result](docs-images/container-result.JPG)
 
-
-To stop the container from running when you finish, go back ot the command line and type **CTRL + C** this will show the application shutting down
+コンテナを停止するには、コマンドラインに戻り **CTRL + C** を入力してください。このようにアプリケーションが終了したことが確認できます。
 
 ![Application Shutdown](docs-images/application-shutdown.JPG)
 
-# Task C: Microsoft Power Apps
-## Creating a front end application to take a picture of a dog and analyse it
+## Task C: Microsoft Power Apps
+
+### Creating a front end application to take a picture of a dog and analyse it
 
 > NOTE: you must use your organizational account to use PowerApps. As this may become an issue 
 
@@ -343,7 +349,7 @@ Provide your application useful name to be shown on your phone and select Add
 
 ![PowerApps Home Screen Details](docs-images/powerapps-homescreen-detail.png)
 
-## Congratulations!! 
+### Congratulations!!
 
 The app is now added to your phone home screen and you can open and run the functionality.
 
