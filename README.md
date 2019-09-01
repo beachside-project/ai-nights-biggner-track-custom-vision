@@ -10,7 +10,7 @@
 
 ## マシンの前提条件
 
-* ハンズオンに必要な画像やコードサンプルを取得するために、このリポジトリーをローカルマシーンにクローン（ `https://github.com/beachside-project/ai-nights-biggner-track-custom-vision.git` ）するか、または、このリポジトリーの緑色の 'Clone or Download' ボタンをクリック > 'Download ZIP' をクリックしてください。
+* ハンズオンに必要な画像やコードサンプルを取得するために、このリポジトリーをローカルマシンにクローン（ `https://github.com/beachside-project/ai-nights-biggner-track-custom-vision.git` ）するか、または、このリポジトリーの緑色の 'Clone or Download' ボタンをクリック > 'Download ZIP' をクリックしてください。
 * [Microsoft Azure Subscription](https://azure.microsoft.com/en-gb/free/)
 * モダンブラウザー(Google Chrome, Microsoft Edge)
 
@@ -96,7 +96,8 @@ Microsoft Azure Custom Vision サービスを使用すると、ごくわずか�
 
 ![All images uploaded and tagged](docs-images/all-categories-uploaded.JPG)
 
-アップロードした犬の画像データを使ってアルゴリズムを訓練する準備が整いました。右上隅にある緑色の 'Train' ボタンをクリックしてください。
+アップロードした犬の画像データを使ってアルゴリズムを訓練する準備が整いました。右上隅にある緑色の 'Train' ボタンをクリックしてください。  
+'Choose Training Type' 画面が表示されたら今回は 'Fast Training' を選択してください。
 
 トレーニングプロセスが完了したら 'Performance' タブに遷移します。ここで、訓練したモデルの機械学習の評価指標を見ることができます。
 
@@ -173,10 +174,8 @@ Azure ポータルに移動し、左上左のコーナーにある 'リソース
 
 **+ コンテナー**をクリックし、コンテナーの名前を作成します。
 
-Select the **+ Container** button and create a name for the container
-
-> 例として **ainightsstor(your name)** アカウントには **images** と付けます。
-> 例として **resultsainights(your name)** アカウントには **results** と付けます。
+> **ainightsstor(your name)** アカウントのコンテナーには **images** と付けます。  
+> **resultsainights(your name)** アカウントのコンテナーには **results** と付けます。
 
 パブリックアクセスレベルは **コンテナー（コンテナーと Blob の匿名読み取りアクセス）** を設定します。
 
