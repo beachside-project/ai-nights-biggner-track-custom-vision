@@ -190,89 +190,92 @@ API をテストするには、Postman で新しいリクエストを作成し�
 
 ## Task C: Microsoft Power Apps
 
-### Creating a front end application to take a picture of a dog and analyse it
+### 犬の写真を撮って分析するフロントエンドアプリケーションを作成する
 
-> NOTE: you must use your organizational account to use PowerApps. As this may become an issue 
+> 補足: PowerApps を利用するには組織アカウントが必要です。
 
-Navigate to: [https://powerapps.microsoft.com/en-us/?WT.mc_id=build2019-event-amynic](https://powerapps.microsoft.com/en-us/) and sign in with your organizational account.
+[https://powerapps.microsoft.com/en-us/](https://powerapps.microsoft.com/en-us/) を開き、PowerApps 組織アカウントでサインインします。
 
-This will take you to the PowerApps main menu screen. Select the **Canvas App from Blank** button
+サインインすると、PowerApps のメインメニュー画面に遷移します。 **キャンバス アプリを一から作成** ボタンを選択します。
 
-![PowerApps main menu](docs-images/powerapps-main-menu.JPG)
+![PowerApps main menu](docs-images/powerapps-main-menu.png)
 
-Provide an App Name, **example: Dog Spotter** and in this case select **Format:Phone**
+アプリ名に **例: Dog Spotter** と入力し、形式に **電話** を選択して **作成** ボタンをクリックしてください。
 
-![PowerApps Create Canvas App](docs-images/powerapps-create-canvas-app.JPG)
+![PowerApps Create Canvas App](docs-images/powerapps-create-canvas-app.png)
 
-This will load a screen like shown below. With a user interface for you to start building your application using the click-and-drag interface.
+下図のような画面がロードされます。専用のインターフェースで、クリックとドラッグのインターフェースでアプリケーションを構築することができます。
 
-![PowerApps Blank App](docs-images/powerapps-blank-app.JPG)
+![PowerApps Blank App](docs-images/powerapps-blank-app.png)
 
-To start building our app we are going to need to insert some functionality. You will find the **insert** menu at the top of the page like below
+アプリケーションの作成を始めるには、機能を追加する必要があります。下図のように画面上部に **挿入** のメニューをあります。
 
-![PowerApps Insert Tab](docs-images/powerapps-insert-tab.JPG)
+![PowerApps Insert Tab](docs-images/powerapps-insert-tab.png)
 
-First we are going to insert **Camera** functionality. Under the insert tab select the **Media** dropdown and select the **Camera** option
+まず、 **カメラ** 機能を追加しましょう。挿入タブにある **メディア** のドロップダウンを開き、 **カメラ** オプションを選択します。
 
-![PowerApps Insert Camera](docs-images/powerapps-insert-camera.JPG)
+![PowerApps Insert Camera](docs-images/powerapps-insert-camera.png)
 
-Position the camera in good place on the page and you will see a properties pane appear on the right side of the page
+カメラをページの適当な位置に配置し、画面の右側に表示されているプロパティペインを確認しましょう。
 
-Choose the **Advanced** tab from the properties pane. Under **Action** and **OnSelect** insert
+プロパティペインの **詳細設定** タブを選択します。 **アクション** の **OnSelect** の欄に下記を記入します。
 
-``` Collect(myPics, Camera1.Photo) ```
+```
+Collect(myPics, Camera1.Photo)
+```
 
-![PowerApps Camera Logic](docs-images/powerapps-camera-logic.JPG)
+![PowerApps Camera Logic](docs-images/powerapps-camera-logic.png)
 
-Next we are going to insert a title for the application. Go to the **insert** tab and select the **Text** dropdown menu. Under this menu select **Label**
+次に、アプリケーションにタイトルを追加します。 **挿入** タブの **テキスト** のドロップダウンメニューを開き、 **ラベル** を選択します。
 
-![PowerApps Insert Title](docs-images/powerapps-insert-title.JPG)
+![PowerApps Insert Title](docs-images/powerapps-insert-title.png)
 
-Place the Title at the top of the page. Under the properties pane on the right update the options below:
-* **Text:** Dog Spotter (or another application name you would like)
-* **Font Size:** 60
-* **Text Alignment:** Center
+画面上部にタイトルを配置します。右側のプロパティペインで下記のようにオプションを編集します:
 
-> Making other changes on the properties pane will change the look and information within your app. Please investigate the options available to you. In this tutorial we will only look at a few
+* **テキスト:** Dog Spotter (またはお好きなアプリケーション名)
+* **フォントサイズ:** 60
+* **テキストのアライメント:** 中央
 
-![PowerApps Title Information](docs-images/powerapps-title-info.JPG)
+> プロパティペインの他の部分を変更することにより、アプリケーションの見た目や情報を変更することができます。オプションが利用できるかどうかはご確認ください。このチュートリアルで操作する部分はほんの一部にすぎません。
 
-Now we are going to insert a **Photo Gallery**. When a photo is taken it will appear in the app at the bottom of the page.
+![PowerApps Title Information](docs-images/powerapps-title-info.png)
 
-Go to the **Insert** tab and select **Gallery**. Choose the **Horizontal** option and position the item on the page below the camera
+次に **フォトギャラリー** を追加しましょう。写真が撮影されたらアプリケーションの下部に表示されるようにします。
 
-![PowerApps Insert Gallery](docs-images/powerapps-insert-gallery.JPG)
+**挿入** タブの **ギャラリー** を選択します。 **横** を選択し、カメラの下に配置します。
 
-In order for the application to know which pictures to use we reuse the **myPics** variable we created in the Camera setup
+![PowerApps Insert Gallery](docs-images/powerapps-insert-gallery.png)
 
-On the properties pane, select **myPics** from the **Items** dropdown menu
+どの画像を使用するかをアプリケーションに伝えるため、カメラのセットアップで作成した **myPics** 変数を利用します。
 
-![PowerApps Collection Images Setup](docs-images/powerapps-collection-images.JPG)
+プロパティペインで、 **データソース** のドロップダウンメニューから **myPics** を選択します。
 
-Now select a single image slot from the gallery and on the properties pane select the **Advanced** tab. Complete the code below for the correct fields:
+![PowerApps Collection Images Setup](docs-images/powerapps-collection-images.png)
 
-* OnSelect: ``` Remove(myPics, ThisItem) ```
-* Image: ``` ThisItem.Url ```
+次にギャラリーの画像スロット単体を選択し、プロパティペインの **詳細設定** タブを選択します。下記のようにフィールドに記入します。
 
-![PowerApps Remove Images Setup](docs-images/powerapps-remove-image.JPG)
+* OnSelect: ` Remove(myPics, ThisItem) `
+* Image: ` ThisItem.Url `
 
-Next we add a **Text Input** box from the **Text** menu on the insert tab. This box will allow us to give our image a name when we send it to Azure Blob Storage.
+![PowerApps Remove Images Setup](docs-images/powerapps-remove-image.png)
 
-![PowerApps Insert Text Input](docs-images/powerapps-insert-text-input.JPG)
+次に挿入タブの **テキスト** から **テキスト入力** を追加します。この入力ボックスは、写真を Azure Blob Storage に送信するときに画像に名前を付けるために使用します。
 
-Align the **Text Input** box underneath the Camera and above the Image gallery
+![PowerApps Insert Text Input](docs-images/powerapps-insert-text-input.png)
 
-Finally add a **Button** to the page. This cna be found underneath the **Insert -> Controls -> Button** options
+**テキスト入力** をカメラの下、ギャラリーの上に配置します。
 
-Place the button next to the text input box underneath the Camera
+最後に **ボタン** を追加します。 **挿入タブ -> コントロール -> ボタン** を選択します。
 
-![PowerApps Insert Button](docs-images/powerapps-insert-button.JPG)
+ボタンを、カメラの下のテキスト入力ボックスの横に配置します。
 
-On the properties pane for the button change the **Text** field to **Send**
+![PowerApps Insert Button](docs-images/powerapps-insert-button.png)
 
-![PowerApps Button Properties](docs-images/powerapps-button-properties.JPG)
+ボタンのプロパティペインで、 **テキスト** を **Send** に編集します。
 
-Now we need to add Azure Blob Storage as our data source. This will mean we can send the image taken by the camera in the app to storage and this will trigger our Logic app
+![PowerApps Button Properties](docs-images/powerapps-button-properties.png)
+
+次に、データソースとして Azure Blob Storage を追加します。これは、アプリケーションのカメラで撮影した画像をそのストレージに送信し、 Logic app のトリガにするための仕組みにします。
 
 Go to **View** in the main toolbar, then **Data Sources**. This will open a pane on the right where you can click **Add Data Source**
 
