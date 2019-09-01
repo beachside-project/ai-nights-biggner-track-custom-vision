@@ -19,7 +19,7 @@
 ## セクション :
 
 * **Task 1:** Microsoft Azure Cognitive Services - Custom Vision [Go to Section](#task-1-microsoft-azure-cognitive-services---custom-vision)
-* **Task 2:** 独自の AI をアプリケーションに組み込む - Azure Logic Apps [Go to Section](#task-2-build-custom-ai-into-an-application---azure-logic-apps)
+* **Task 2:** 独自の AI をアプリケーションに組み込む - Azure Logic Apps [Go to Section](#task-2-独自の-ai-をアプリケーションに組み込む---azure-logic-apps)
 
 > このコンテンツが役に立ちそうでしたら、**ボーナスコンテンツ**に進んでみましょう: [**ボーナスコンテンツはこちら**](bonus-content.md)
 
@@ -54,7 +54,7 @@ Microsoft Azure Custom Vision サービスを使用すると、ごくわずか�
   * '作成' をクリック
 * ![Custom Vision Blade Details](/docs-images/custom-vision-azure.JPG)
 
-これで分類器を作成できるようになりましたので、[https://www.customvision.ai](https://www.customvision.ai/) へ進みサインインしてください。サインイン後、画面右上の自身のアカウントをクリックし、'DIRECTORES' が先ほど作成した Azure の ディレクトリになっていることを確認します。
+これで分類器を作成できるようになりましたので、[https://www.customvision.ai](https://www.customvision.ai/) へ進みサインインしてください。サインイン後、画面右上の自身のアカウントをクリックし、'DIRECTORIES' が先ほど作成した Azure の ディレクトリになっていることを確認します。
 
 > 利用規約に同意の上お進みください。
 
