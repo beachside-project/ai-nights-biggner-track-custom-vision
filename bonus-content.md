@@ -5,7 +5,7 @@
 * デモに必要な画像とコードサンプルを入手するために、このリポジトリをあなたのローカルマシンにクローンしてください。
 
   ```:bash
-  git clone https://github.com/amynic/ainights-sessionowners.git
+  git clone https://github.com/beachside-project/ai-nights-biggner-track-custom-vision.git
   ```
 
 * [Microsoft Azure Subscription](https://azure.microsoft.com/ja-jp/free/) をご用意下さい。
@@ -277,83 +277,82 @@ Collect(myPics, Camera1.Photo)
 
 次に、データソースとして Azure Blob Storage を追加します。これは、アプリケーションのカメラで撮影した画像をそのストレージに送信し、 Logic app のトリガにするための仕組みにします。
 
-Go to **View** in the main toolbar, then **Data Sources**. This will open a pane on the right where you can click **Add Data Source**
+ツールバーの **ビュー** を開き、 **データ ソース** を選択すると、データ ソースペインが表示されます。
 
-![PowerApps Add Data Source](docs-images/powerapps-add-datasource.JPG)
+![PowerApps Add Data Source](docs-images/powerapps-add-datasource.png)
 
-Select **New Connection** and search for **blob** in the search box. Then click the Azure Blob Storage option
+データ ソースペインの検索欄に **blob** と入力し、表示された Azure Blob Storage オプションを選択します。
 
-![PowerApps Add Data Source setup connection](docs-images/powerapps-datasource-setup.JPG)
+![PowerApps Add Data Source setup connection](docs-images/powerapps-datasource-setup.png)
 
-Insert the connection information for your Azure Blob Storage account you used in the Logic App scenario: example ainightsstor.
+本編の Logic App のシナリオで使った Azure Blob Storage アカウントへの接続情報を入力します。 例 ainightsstor 。Azure ストレージアカウントのアクセスキーは、Azureポータルで当該のストレージアカウントを開き、メニューの **設定 -> アクセス キー** から **key1** の **キー** の値を使用してください。入力を終えたら、 **作成** ボタンをクリックします。
 
-![PowerApps Add Data Source setup connection](docs-images/PowerApps-azure-blob-storage-connection.JPG)
+![PowerApps Add Data Source setup connection](docs-images/PowerApps-azure-blob-storage-connection.png)
 
-Once authenticated you will then see your blob storage connection added to the connections pane
+認証されると、データソースペインに AzureBlobStorage が追加されます。
 
-![PowerApps Data Added](docs-images/powerapps-data-added.JPG)
+![PowerApps Data Added](docs-images/powerapps-data-added.png)
 
-Now we can use this connection in a function. Click on the **Send** button and switch to the **Advanced** pane.
+それでは、この接続を組み込みましょう。 **Send** ボタンを選択し、 **詳細設定** ペインを開きます。
 
-In the OnSelect box type: 
- ``` AzureBlobStorage.CreateFile("images", TextInput1.Text, Camera1.Photo) ```
+OnSelect 欄に下記のように入力します:
 
+```
+AzureBlobStorage.CreateFile("images", TextInput1.Text, Camera1.Photo)
+```
 
-![PowerApps Azure Blob Function](docs-images/powerapps-function.JPG)
+![PowerApps Azure Blob Function](docs-images/powerapps-function.png)
 
-
-Now we have built an app lets test it in our development environment. In the top right of the screen you will see the toolbar below - press the **Play** button highlighted. This will open a new window with your application running. This will ask for access to your camera to test the app
+さて、開発環境でテストできる状態までアプリケーションを作成できました。それでは、下図のように、画面右上のツールバーから **アプリのプレビュー** （再生）ボタンをクリックしましょう。画面が変わり、アプリケーションが起動します。なお、テストをするためにカメラへのアクセスを許可する必要があるかもしれません。
 
 ![PowerApps Preview your app](docs-images/powerapps-preview-app.JPG)
 
-> Test you app by taking a picture of a dog (or anything at this point). The camera will take a picture - name it - click the send button. Once sent wait a moment and you should recieve an email as your Logic app will have triggered
+> 犬の写真（または他の何か）を撮影してテストしてみましょう。カメラの画像が映ってる部分をクリックすると写真が撮影できます。撮影したら、テキスト入力ボックスに画像の名前（例: dog.png ）を入力し、 Send ボタンをクリックします。しばらくすると Logic App が作動し、分析結果が保存されるでしょう。
 
-![PowerApps Preview your app](docs-images/powerapps-preview-running.JPG)
+![PowerApps Preview your app](docs-images/powerapps-preview-running.png)
 
-Now we are going to **Save** and **Publish** the application so you can use it on your mobile device
+それでは、モバイルデバイスで利用できるようにアプリケーションを **保存** して **共有** しましょう。
 
-Go to the **File** tab in to top toolbar and choose the option on the left pane **Save**. Then click the **save** button.
+上部の **ファイル** タブを開き、左ペインから **保存** を開きます。そして **保存** ボタンをクリックします。
 
-Once saved you will have the **Publish** button appear - select this
+保存できたら、表示された **このアプリを共有する** ボタンをクリックします。
 
-![PowerApps Publish](docs-images/powerapps-publish.JPG)
+![PowerApps Publish](docs-images/powerapps-publish.png)
 
-![PowerApps save](docs-images/powerapps-saved.JPG)
+また、アプリケーションのアイコンの表示を編集することもできます。 **ファイル** メニューの **アプリの設定** を開きましょう。
 
-You can also edit the look of the icon for the application. In the **File** menu go to **App Settings**.
+**アプリの名前とアイコン** では、アプリケーションの背景色を選択したりアイコンを変更することができます。
 
-In **App Name and Icon** select a background color for your application and choose an icon. You can also upload you own. Why not add a dog icon? Download the icon from [here](sample-code/dog-icon.png) and choose the **browse** button to add your own icon
+![PowerApps Change App Settings](docs-images/powerapps-app-settings.png)
 
-![PowerApps Change App Settings](docs-images/powerapps-app-settings.JPG)
+共有したアプリケーションをモバイルデバイスで利用できるようにするには、App store から PowerApps アプリをダウンロードする必要があります。
 
-In order to view your published app on your phone you will need to download the PowerApps app from your app store. 
-
-> For this tutorial the instructions will be for IOS.
+> このチュートリアルでは iOS 向けの手順を紹介します。
 
 ![PowerApps IPhone download](docs-images/powerapps-download.png)
 
-Once the app is download. Open the application and log in with your organizational credentials. Once logged in you should see all your organizations apps listed
+PowerApps アプリをダウンロードできたら、アプリを開き組織アカウントでサインインしてください。サインインすると組織に紐づくアプリケーションの一覧が表示されます。
 
 ![PowerApps apps listed on phone](docs-images\PowerApps-in-PowerApps-on-phone.png)
 
-For you Dog Spotter app we want to add it to your home screen like any other application. Click on the 3 dots (...) and select **pin to home**
+Dog Spotter アプリを他のアプリケーションのようにホーム画面に追加しましょう。3点の部分をタップし、 **Pin to Home** を選択します。
 
 ![PowerApps Pin to home screen](docs-images/powerapps-pin-app.png)
 
-This will open the web browser where you follow the instructions to add it to your home screen. Select the share button.
+するとウェブブラウザが開くので、指示に従ってホーム画面にアプリケーションを追加します。共有ボタンをタップしましょう。
 
 ![PowerApps add to home screen](docs-images/powerapps-add-to-homescreen.png)
 
-Select **Add to Home Screen**
+**Add to Home Screen** をタップします。
 
 ![PowerApps add to home screen using IOS functionality](docs-images/powerapps-add-to-homescreen-button.png)
 
-Provide your application useful name to be shown on your phone and select Add
+必要に応じて使いやすい名前を設定し、 Add ボタンをタップします。
 
 ![PowerApps Home Screen Details](docs-images/powerapps-homescreen-detail.png)
 
-### Congratulations!!
+**おめでとうございます!!**
 
-The app is now added to your phone home screen and you can open and run the functionality.
+これでアプリケーションがあなたの端末のホーム画面に追加され、利用できるようになりました。
 
-Test the app by taking a picture of a dog and sending it to the cloud.
+犬の写真を撮影してそれをクラウドに送信し、テストしてみましょう！
