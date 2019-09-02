@@ -1,327 +1,358 @@
-# AI Nights **BONUS** Content - Beginner Track
+# AI Nights **ボーナス** コンテンツ - Beginner Track
 
-## Pre-requisites for your machine
-* Clone this repository to your local machine to gain images and code samples you need for the demos: ```git clone https://github.com/amynic/ainights-sessionowners.git```
-* [Microsoft Azure Subscription](https://azure.microsoft.com/en-gb/free/?WT.mc_id=ainights-github-amynic)
-* Laptop with a modern web browser (Google Chrome, Microsoft Edge)
-* [Postman, API Development Environment - available on Windows, Linux and macOS](https://www.getpostman.com/downloads/)
-* [Download docker for your local machine - available on Windows, Linux and macOS](https://docs.docker.com/docker-for-windows/)
+## マシンの前提条件
 
-> *All demos and content have been tested on a Windows PC, however all options should run from macOS and Linux machines as well. Please provide information via an issue or pull request if you have feedback on other operating systems*  
+* デモに必要な画像とコードサンプルを入手するために、このリポジトリをあなたのローカルマシンにクローンしてください。
 
-## Go to sections:
+  ```:bash
+  git clone https://github.com/beachside-project/ai-nights-biggner-track-custom-vision.git
+  ```
 
-* **Task A:** Microsoft Azure Cognitive Services - Computer Vision [Go to Section](#task-a-microsoft-azure-cognitive-services---computer-vision)
-* **Task B:** Microsoft Azure Cognitive Services - Text Analytics in a Container [Go to Section](#task-b-microsoft-azure-cognitive-services---text-analytics-in-a-container)
-* **Task C:** Microsoft PowerApps [Go to Section](#task-c-microsoft-power-apps)
+* [Microsoft Azure Subscription](https://azure.microsoft.com/ja-jp/free/) をご用意下さい。
+* モダンなブラウザー (Google Chrome, Microsoft Edge) がインストールされていること。
+* [Postman](https://www.getpostman.com/downloads/) がインストールされていること。
+  * Postman は API Development Environment です。Windows, Linux や macOS で利用可能です。
+* docker がインストールされていること。
+  * [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/)
+  * [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/)
+  * [Docker Engine - Community](https://docs.docker.com/install/)
+
+> *すべてのデモやコンテンツは Windows でテストしていますが、MacOS や Linux で動作するようオプションを設定しています。もし他のオペレーティングシステムでのフィードバックがありましたら、issue やプルリクエストを通じて情報を提供いただけますと幸いです。*
+
+## セクション一覧:
+
+* **Task A:** Microsoft Azure Cognitive Services - Computer Vision [セクションへ](#task-a-microsoft-azure-cognitive-services---computer-vision)
+* **Task B:** Microsoft Azure Cognitive Services - Text Analytics in a Container [セクションへ](#task-b-microsoft-azure-cognitive-services---text-analytics-in-a-container)
+* **Task C:** Microsoft PowerApps [セクションへ](#task-c-microsoft-power-apps)
 
 ## Task A: Microsoft Azure Cognitive Services - Computer Vision
 
-In this task you will try out the Cognitive Services using the website demo options
+このタスクでは、ウェブサイトのデモオプションを使って Cognitive Services を試します。
 
-Navigate to: [https://azure.microsoft.com/en-gb/services/cognitive-services/directory/vision/](https://azure.microsoft.com/en-gb/services/cognitive-services/directory/vision/?WT.mc_id=ainights-github-amynic)
+このページを開きます: [https://azure.microsoft.com/ja-jp/services/cognitive-services/directory/vision/](https://azure.microsoft.com/ja-jp/services/cognitive-services/directory/vision/)
 
-![Computer Vision website Link highlighted](/docs-images/computer-vision-link.JPG)
+![Computer Vision website Link highlighted](/docs-images/computer-vision-link.png)
 
-There are lots of different demos to try in each section (Scene and Activity Recognition in Images, OCR, Face Detection, Emotion Detection, Video indexer etc)
+ここには、それぞれのセクションを試すためのたくさんのデモがあります。（画像内のシーンとアクティビティの認識、OCR、顔検出、表情検出、Video indexer など）
 
-Select the **Demo** link next to **Scene and activity recognition in images** under **Computer Vision**. There are also other demo links to explore the different services
+**Computer Vision** の下の **画像内のシーンおよびアクティビティ認識** のとなりの **デモ** というリンクをクリックします。（また、ここには様々なサービスを知るための他のデモのリンクもあります。）
 
-![Computer Vision Example](/docs-images/computer-vision-demo.JPG)
+![Computer Vision Example](/docs-images/computer-vision-demo.png)
 
-Now select **Browse** button and upload the **cat.jpeg** or **city.jpeg** image from ```sample-images/computer-vision-web-browser/cat.jpeg```
+ここでは、指定された画像にどのような情報があるかを検出するデモを体験できます。上図に示す画面の左側には対象の画像が表示され、検出されたオブジェクトが矩形で示されていることがわかります。また右側には検出されたデータが表示されています。
 
-![Computer Vision Cat Example](/docs-images/cat-sample.JPG)
+それでは、 **参照** ボタンをクリックし、 `sample-images/computer-vision-web-browser` ディレクトリの **cat.jpeg** または **city.jpeg** をアップロードします。
+
+例えば **cat.jpeg** をアップロードすると、下図のように猫がオブジェクトとして検出されていることがわかります。また右の欄の情報から、猫が検出された旨を読み取ることができます。
+
+![Computer Vision Cat Example](/docs-images/cat-sample.png)
 
 ## Task 2: Microsoft Azure Cognitive Services - Text Analytics via REST
 
-Now you will try using the REST protocol as you would use to integrate these services into an application
+つぎに、これらのサービスをアプリケーションに組み込むことを想定して、 REST プロトコルを用いて体験してみましょう。
 
-First log into [Microsoft Azure](https://azure.microsoft.com/en-gb/?WT.mc_id=ainights-github-amynic) and choose **Portal** in the top right corner.
+まず、[Microsoft Azure](https://azure.microsoft.com/ja-jp/) にサインインし、右角にある **ポータル** をクリックして開きます。
 
-Once in the portal select **Create a resource** and search **Cognitive Services** and choose Enter. Then select **Create** on the Cognitive Services blade
+次に、ポータルの左上にある **リソースの作成** をクリックし、検索欄で **Cognitive Services** を入力し候補から **Cognitive Services** を選択します。それから、Cognitive Services ブレードの **作成** をクリックします。
 
-![Create Cognitive Services Account](/docs-images/cognitive-azure.JPG)
+![Select Cognitive Services](/docs-images/cognitive-azure-001.png)
+![Create Cognitive Services Account](/docs-images/cognitive-azure-002.png)
 
-Enter details to create an account:
-* **Name:** enter a suitable name for the service (example: ainightscognitive)
-* **Subscription:** Choose your subscription
-* **Location:** Choose your closest Data Center available
-* **Pricing Tier:** S0
-* **Resource Group:** Select 'Create new', and provide a sensible name (example ainights)
-* **select the checkbox after reading the terms below**
-* **select 'Create'**
+Cognitive Services のアカウントを作成するために詳細を入力します:
 
-![Cognitive Services Details](/docs-images/cognitive-details.JPG)
+* **名前:** サービス名を入力する（例: ainightscognitive ）
+* **サブスクリプション:** 利用するサブスクリプションを選択する
+* **場所:** 最寄りの利用可能なデータセンターの場所を選択する（例: (アジア太平洋) 東日本）
+* **価格レベル:** S0
+* **リソースグループ:** '新規作成'をクリックし、リソースグループの名前を入力する（例: ainights ）
+* **規約を読み、「以下の通知を読み、理解しました。」のチェックボックスにチェックする**
+* **'作成' をクリックする**
 
-Once created, in your notifications (top right corner) select **go to resource**
-![Go to Resource](/docs-images/go-to-resource.JPG)
+![Cognitive Services Details](/docs-images/cognitive-details.png)
 
-In the Cognitive Services page, select **Keys** and copy **KEY 1**
-![Copy Key](/docs-images/keys.JPG)
+作成が完了したら、通知（画面右上）を開き、 **リソースに移動** をクリックします。
 
-Now select **Overview** in the left hand pane and copy the **Endpoint** variable
-![Copy Endpoint](/docs-images/endpoint.JPG)
+![Go to Resource](/docs-images/go-to-resource.png)
 
-Download and open Postman, an API Development environment on your local machine. 
-> Find the download in the [Pre-requisites section](#Pre-requisites-for-your-machine)
+Cognitive Services のページで、 **キー**　をクリックし、 **キー 1** をコピーします。
 
+![Copy Key](/docs-images/keys.png)
 
-Select **Request**
+つぎに、左ペインから **概要** を開き、エンドポイントの値をコピーします。
+
+![Copy Endpoint](/docs-images/endpoint.png)
+
+Postman をダウンロードしインストールし、ローカルマシンに API の作業環境を整えます。
+
+> Postman についてはこちら [マシンの前提条件 セクション](#マシンの前提条件) に掲載したリンクから、ダウンロードしてください。
+
+Postman を開き、図中のウィンドウが表示されている場合は「Create New」タブの **Request** を選択します。ウィンドウが表示されていない場合は、左上の「New」をクリックすると表示されます。
 
 ![Create A Request](/docs-images/create-request.JPG)
 
-Enter request details as below and choose the option **create a new collection** and name it "Text Analytics Samples"
+下図のようにリクエストの詳細を入力し、 **+ Create Collection** をクリックし "Text Analytics Samples" と名前を入力します。
 
 ![Enter Request Details](/docs-images/save-request.JPG)
 
-Select the newly created collection and choose save
+作成した collection を選択し、 **Save to Text Analytics Samples** をクリックして保存します。
 
 ![Save Request](/docs-images/save.JPG)
 
-Now create a request to call your text analytics API:
-* Change from a GET request to a POST request in the top left
-* Enter your endpoint URL and add ```text/analytics/v2.0/sentiment``` to the end
-* Select Headers underneath the URL box
-* In Key type ```Ocp-Apim-Subscription-Key``` and in Value add your KEY1 value
-* In Key type ```Content-Type``` and in Value type ```application/json```
+つぎに、 Text analytics API を呼び出すリクエストを作成します:
+
+* 左上の GET リクエストを POST リクエストに変更する
+* URL入力欄に、前述でコピーしたエンドポイントの URL を入力し、続いて `text/analytics/v2.0/sentiment` を入力する
+* URL入力欄の下の Headers タブを開く
+* キーに `Ocp-Apim-Subscription-Key` を入力し、値に前述でコピーした **KEY1** を入力する
+* キーに `Content-Type` を入力し、値に `application/json` を入力する
+
 * ![Headers and URL](/docs-images/url-and-headers.JPG)
-* Select Body underneath the URL box
-* Select ```raw``` from the radio button options
-* Copy JSON sample from ```sample-code/cognitive-services-api-task/sentiment-analysis-text.json``` into the box
-* Select the ```Send``` button and review the Response
+
+* URL入力欄の下の Body タブを開く
+* `raw` のラジオボタンを選択する
+* `sample-code/cognitive-services-api-task/sentiment-analysis-text.json` の JSON をコピーし Body 入力欄にペーストする
+* `Send` ボタンをクリックし、レスポンスを確認する。ポジティブな文は `score` が高く、ネガティブな要素が含まれている文は `score` が低く判定されていることがわかります。
+
 * ![Body and Submit REST Request](/docs-images/rest-body.JPG)
 
-You can also try other options from the REST API - such as KeyPhrases function. Change the end of the URL from sentiment to keyPhrases and select send to view the key phrases for the example text.
+また、REST API からほかのオプションを試すこともできます。例えば、 KeyPhrases 機能です。 URL の末尾を `sentiment` から `keyPhrases` に変更し、 `Send` をクリックしてキーフレーズの結果を確認しましょう。
 
 * ![Key Phrases REST Request](/docs-images/keyphrases.JPG)
 
-> Check out the language support for the Text Analytics API [here](https://docs.microsoft.com/en-gb/azure/cognitive-services/text-analytics/language-support/?WT.mc_id=ainights-github-amynic). If your language is supported please edit the JSON file to translate the text and show the functionality of the API above. There is an example of a French JSON file in ```sample-code/text-analytics-demo/sentiment-analysis-text-fr.json``` please edit this file as appropriate
+> Text Analytics API の言語のサポートについては、[こちら](https://docs.microsoft.com/en-gb/azure/cognitive-services/text-analytics/language-support/)からご参照ください。もしお使いの言語がサポートされていれば、JSON ファイルを編集してテキストを翻訳し、APIの動作を確認してみて下さい。例として、フランス語の JSON ファイルが `sample-code/text-analytics-demo/sentiment-analysis-text-fr.json` です。適宜変更してください。
 
-> If you have any issues running Postman, API Development Environment you can always run the REST API requests within the API docs for [sentiment analysis](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9/?WT.mc_id=ainights-github-amynic) and [key phrase extraction](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6/?WT.mc_id=ainights-github-amynic). Select the data centre you are using and then enter your key in the box provided along with the sample body sample used in Postman
+> もし Postman を利用するにあたり問題があれば、 [sentiment analysis](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9/) や [key phrase extraction](https://northeurope.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6/) の API ドキュメントからいつでも REST API のリクエストを発行することができます。利用しているデータセンターを選択し、Postman で利用したキーや body のサンプルを入力してご利用ください。
 
 ## Task B: Microsoft Azure Cognitive Services - Text Analytics in a Container
 
-Demo based on the Azure Documentation: [Install and run Text Analytics containers](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers/?WT.mc_id=ainights-github-amynic)
+このデモはこの Azure ドキュメントに基づいたものです: [Install and run Text Analytics containers](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers/)
 
-In order to run this demo you will need Docker installed locally on your machine
-[Download docker for your local machine here - available on Windows, Linux and macOS](https://docs.docker.com/docker-for-windows/)
+このデモを実行するために、お手元のマシンに Docker をインストールする必要があります。
 
-Once the download starts you can see the information of its progress
+* [Download docker for your local machine here - available on Windows, Linux and macOS](https://docs.docker.com/docker-for-windows/)
+
+Docker のインストーラーを実行し、ダウンロードが開始されたら、このように実行状況を確認することができます。
+
 ![Docker Download](docs-images/docker-download.JPG)
 
-Once installed, run Docker (on windows type docker into the start menu and select Docker Desktop)
-Check the Docker Daemon is running on your machine.
+インストールされたら、 Docker を起動してください。（Windows の場合は、スタートメニューで `docker` と入力し、 Docker Desktop を選択します。）Docker デーモンが起動しているか確認してください。
 
-In windows you can find the icon in the bottom left toolbar near the date/time
+Windows の場合は、タスクバーの通知領域（日付と時間の表示の近く）に Docker のアイコンが表示されていれば起動できています。
 
 ![Docker Running](docs-images/docker-running.JPG)
 
-In order to run the Cognitive Services Text Analytics API locally you need to get the image for your machine. Open a command prompt within a folder on your machine (I recommend creating an AI-Nights folder if you haven't done already)
+Cognitive Services Text Analytics API をローカルで実行するために、Docker イメージを取得する必要があります。コマンドプロンプトを開き、任意のディレクトリの配下で下記コマンドを実行してください。（もし適したディレクトリがなければ、 `AI-Nights` というディレクトリを作成するとよいでしょう。）
 
-Enter the command below
+```
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+```
 
-```docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest```
-
-and the docker image should start to download to your local registry
+すると、ローカルのレジストリに対して、Docker イメージのダウンロードが開始されます。
 
 ![Docker Pull success](docs-images/docker-pull-request-success.JPG)
 
-> If you see an error similar to the below, double check your Docker Daemon is running before executing docker commands. To confirm it is running try the [Getting Started Guide from Docker Here](https://docs.docker.com/docker-for-windows/) ![Docker Error](docs-images/possible-error.JPG)
+> もし下図のようなエラーが発生する場合、 `docker` コマンドを実行する前に Docker デーモンが起動しているかをよく確認してください。確認するには [Getting Started Guide from Docker Here](https://docs.docker.com/docker-for-windows/) をお試しください。
+![Docker Error](docs-images/possible-error.JPG)
 
-Now its downloaded we want to start running the container so we can query it with text sentences and gain our sentiment scores back.
+ダウンロードが終わったら、指定した文章の感情スコアを得るためにコンテナを実行する準備をしましょう。
 
-In order to run the container you will need you **Cognitive Services Endpoint** and your **API Key** from the previous section
+コンテナを起動するためには、前章で利用した **Cognitive Services エンドポイント** と **API キー** が必要になります。
 
->if you wish to prove the container is local. Disconnect from the internet now
+> このコンテナがローカルで動いていることを確認したい場合は、インターネットの接続を切断してお試しください。
 
-The docker run command looks like below ([or is available here](sample-code/cognitive-containers/run-container-command.txt)). Substitute the data center and API key values and run
+`docker run` コマンドは、下記（または、 [このファイル](sample-code/cognitive-containers/run-container-command.txt) ）のようになります。データセンターと API キーの値は適宜置換え、実行してください。
 
-```docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://<datacenter-here>.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=<key>```
+```
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://<datacenter-here>.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=<key>
+```
 
-The container is running on your local machine
-To understand how to query the local API review the Swagger definition here: [http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
+このコンテナはあなたのローカルマシンで実行されています。
+
+クエリの詳細を把握するには、この OpenAPI（旧 Swagger）の定義を確認してください: [http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
 
 ![Swagger Definition](docs-images/swagger.JPG)
 
-To test the API, make a new postman request:
+API をテストするには、Postman で新しいリクエストを作成します:
+
 * POST
 * URL: http://localhost:5000/text/analytics/v2.0/sentiment
 * Headers:
-    * Content-Type : application/json
-    * ![Postman Request for Containers](docs-images/container-postman.JPG)
+  * Content-Type : application/json
+  * ![Postman Request for Containers](docs-images/container-postman.JPG)
 
 * Body:
-    * enter the sample JSON input from the [previous exercise](sample-code/text-analytics-demo/sentiment-analysis-text.json)
-    * ![Postman Request for Containers Result](docs-images/container-result.JPG)
+  * [前章](sample-code/text-analytics-demo/sentiment-analysis-text.json)のサンプル JSON を入力します
+  * ![Postman Request for Containers Result](docs-images/container-result.JPG)
 
-
-To stop the container from running when you finish, go back ot the command line and type **CTRL + C** this will show the application shutting down
+コンテナを停止するには、コマンドラインに戻り **CTRL + C** を入力してください。このようにアプリケーションが終了したことが確認できます。
 
 ![Application Shutdown](docs-images/application-shutdown.JPG)
 
-# Task C: Microsoft Power Apps
-## Creating a front end application to take a picture of a dog and analyse it
+## Task C: Microsoft Power Apps
 
-> NOTE: you must use your organizational account to use PowerApps. As this may become an issue 
+### 犬の写真を撮って分析するフロントエンドアプリケーションを作成する
 
-Navigate to: [https://powerapps.microsoft.com/en-us/?WT.mc_id=build2019-event-amynic](https://powerapps.microsoft.com/en-us/) and sign in with your organizational account.
+> 補足: PowerApps を利用するには組織アカウントが必要です。
 
-This will take you to the PowerApps main menu screen. Select the **Canvas App from Blank** button
+[https://powerapps.microsoft.com/en-us/](https://powerapps.microsoft.com/en-us/) を開き、PowerApps 組織アカウントでサインインします。
 
-![PowerApps main menu](docs-images/powerapps-main-menu.JPG)
+サインインすると、PowerApps のメインメニュー画面に遷移します。 **キャンバス アプリを一から作成** ボタンを選択します。
 
-Provide an App Name, **example: Dog Spotter** and in this case select **Format:Phone**
+![PowerApps main menu](docs-images/powerapps-main-menu.png)
 
-![PowerApps Create Canvas App](docs-images/powerapps-create-canvas-app.JPG)
+アプリ名に **例: Dog Spotter** と入力し、形式に **電話** を選択して **作成** ボタンをクリックしてください。
 
-This will load a screen like shown below. With a user interface for you to start building your application using the click-and-drag interface.
+![PowerApps Create Canvas App](docs-images/powerapps-create-canvas-app.png)
 
-![PowerApps Blank App](docs-images/powerapps-blank-app.JPG)
+下図のような画面がロードされます。専用のインターフェースで、クリックとドラッグのインターフェースでアプリケーションを構築することができます。
 
-To start building our app we are going to need to insert some functionality. You will find the **insert** menu at the top of the page like below
+![PowerApps Blank App](docs-images/powerapps-blank-app.png)
 
-![PowerApps Insert Tab](docs-images/powerapps-insert-tab.JPG)
+アプリケーションの作成を始めるには、機能を追加する必要があります。下図のように画面上部に **挿入** のメニューをあります。
 
-First we are going to insert **Camera** functionality. Under the insert tab select the **Media** dropdown and select the **Camera** option
+![PowerApps Insert Tab](docs-images/powerapps-insert-tab.png)
 
-![PowerApps Insert Camera](docs-images/powerapps-insert-camera.JPG)
+まず、 **カメラ** 機能を追加しましょう。挿入タブにある **メディア** のドロップダウンを開き、 **カメラ** オプションを選択します。
 
-Position the camera in good place on the page and you will see a properties pane appear on the right side of the page
+![PowerApps Insert Camera](docs-images/powerapps-insert-camera.png)
 
-Choose the **Advanced** tab from the properties pane. Under **Action** and **OnSelect** insert
+カメラをページの適当な位置に配置し、画面の右側に表示されているプロパティペインを確認しましょう。
 
-``` Collect(myPics, Camera1.Photo) ```
+プロパティペインの **詳細設定** タブを選択します。 **アクション** の **OnSelect** の欄に下記を記入します。
 
-![PowerApps Camera Logic](docs-images/powerapps-camera-logic.JPG)
+```
+Collect(myPics, Camera1.Photo)
+```
 
-Next we are going to insert a title for the application. Go to the **insert** tab and select the **Text** dropdown menu. Under this menu select **Label**
+![PowerApps Camera Logic](docs-images/powerapps-camera-logic.png)
 
-![PowerApps Insert Title](docs-images/powerapps-insert-title.JPG)
+次に、アプリケーションにタイトルを追加します。 **挿入** タブの **テキスト** のドロップダウンメニューを開き、 **ラベル** を選択します。
 
-Place the Title at the top of the page. Under the properties pane on the right update the options below:
-* **Text:** Dog Spotter (or another application name you would like)
-* **Font Size:** 60
-* **Text Alignment:** Center
+![PowerApps Insert Title](docs-images/powerapps-insert-title.png)
 
-> Making other changes on the properties pane will change the look and information within your app. Please investigate the options available to you. In this tutorial we will only look at a few
+画面上部にタイトルを配置します。右側のプロパティペインで下記のようにオプションを編集します:
 
-![PowerApps Title Information](docs-images/powerapps-title-info.JPG)
+* **テキスト:** Dog Spotter (またはお好きなアプリケーション名)
+* **フォントサイズ:** 60
+* **テキストのアライメント:** 中央
 
-Now we are going to insert a **Photo Gallery**. When a photo is taken it will appear in the app at the bottom of the page.
+> プロパティペインの他の部分を変更することにより、アプリケーションの見た目や情報を変更することができます。オプションが利用できるかどうかはご確認ください。このチュートリアルで操作する部分はほんの一部にすぎません。
 
-Go to the **Insert** tab and select **Gallery**. Choose the **Horizontal** option and position the item on the page below the camera
+![PowerApps Title Information](docs-images/powerapps-title-info.png)
 
-![PowerApps Insert Gallery](docs-images/powerapps-insert-gallery.JPG)
+次に **フォトギャラリー** を追加しましょう。写真が撮影されたらアプリケーションの下部に表示されるようにします。
 
-In order for the application to know which pictures to use we reuse the **myPics** variable we created in the Camera setup
+**挿入** タブの **ギャラリー** を選択します。 **横** を選択し、カメラの下に配置します。
 
-On the properties pane, select **myPics** from the **Items** dropdown menu
+![PowerApps Insert Gallery](docs-images/powerapps-insert-gallery.png)
 
-![PowerApps Collection Images Setup](docs-images/powerapps-collection-images.JPG)
+どの画像を使用するかをアプリケーションに伝えるため、カメラのセットアップで作成した **myPics** 変数を利用します。
 
-Now select a single image slot from the gallery and on the properties pane select the **Advanced** tab. Complete the code below for the correct fields:
+プロパティペインで、 **データソース** のドロップダウンメニューから **myPics** を選択します。
 
-* OnSelect: ``` Remove(myPics, ThisItem) ```
-* Image: ``` ThisItem.Url ```
+![PowerApps Collection Images Setup](docs-images/powerapps-collection-images.png)
 
-![PowerApps Remove Images Setup](docs-images/powerapps-remove-image.JPG)
+次にギャラリーの画像スロット単体を選択し、プロパティペインの **詳細設定** タブを選択します。下記のようにフィールドに記入します。
 
-Next we add a **Text Input** box from the **Text** menu on the insert tab. This box will allow us to give our image a name when we send it to Azure Blob Storage.
+* OnSelect: ` Remove(myPics, ThisItem) `
+* Image: ` ThisItem.Url `
 
-![PowerApps Insert Text Input](docs-images/powerapps-insert-text-input.JPG)
+![PowerApps Remove Images Setup](docs-images/powerapps-remove-image.png)
 
-Align the **Text Input** box underneath the Camera and above the Image gallery
+次に挿入タブの **テキスト** から **テキスト入力** を追加します。この入力ボックスは、写真を Azure Blob Storage に送信するときに画像に名前を付けるために使用します。
 
-Finally add a **Button** to the page. This cna be found underneath the **Insert -> Controls -> Button** options
+![PowerApps Insert Text Input](docs-images/powerapps-insert-text-input.png)
 
-Place the button next to the text input box underneath the Camera
+**テキスト入力** をカメラの下、ギャラリーの上に配置します。
 
-![PowerApps Insert Button](docs-images/powerapps-insert-button.JPG)
+最後に **ボタン** を追加します。 **挿入タブ -> コントロール -> ボタン** を選択します。
 
-On the properties pane for the button change the **Text** field to **Send**
+ボタンを、カメラの下のテキスト入力ボックスの横に配置します。
 
-![PowerApps Button Properties](docs-images/powerapps-button-properties.JPG)
+![PowerApps Insert Button](docs-images/powerapps-insert-button.png)
 
-Now we need to add Azure Blob Storage as our data source. This will mean we can send the image taken by the camera in the app to storage and this will trigger our Logic app
+ボタンのプロパティペインで、 **テキスト** を **Send** に編集します。
 
-Go to **View** in the main toolbar, then **Data Sources**. This will open a pane on the right where you can click **Add Data Source**
+![PowerApps Button Properties](docs-images/powerapps-button-properties.png)
 
-![PowerApps Add Data Source](docs-images/powerapps-add-datasource.JPG)
+次に、データソースとして Azure Blob Storage を追加します。これは、アプリケーションのカメラで撮影した画像をそのストレージに送信し、 Logic app のトリガにするための仕組みにします。
 
-Select **New Connection** and search for **blob** in the search box. Then click the Azure Blob Storage option
+ツールバーの **ビュー** を開き、 **データ ソース** を選択すると、データ ソースペインが表示されます。
 
-![PowerApps Add Data Source setup connection](docs-images/powerapps-datasource-setup.JPG)
+![PowerApps Add Data Source](docs-images/powerapps-add-datasource.png)
 
-Insert the connection information for your Azure Blob Storage account you used in the Logic App scenario: example ainightsstor.
+データ ソースペインの検索欄に **blob** と入力し、表示された Azure Blob Storage オプションを選択します。
 
-![PowerApps Add Data Source setup connection](docs-images/PowerApps-azure-blob-storage-connection.JPG)
+![PowerApps Add Data Source setup connection](docs-images/powerapps-datasource-setup.png)
 
-Once authenticated you will then see your blob storage connection added to the connections pane
+本編の Logic App のシナリオで使った Azure Blob Storage アカウントへの接続情報を入力します。 例 ainightsstor 。Azure ストレージアカウントのアクセスキーは、Azureポータルで当該のストレージアカウントを開き、メニューの **設定 -> アクセス キー** から **key1** の **キー** の値を使用してください。入力を終えたら、 **作成** ボタンをクリックします。
 
-![PowerApps Data Added](docs-images/powerapps-data-added.JPG)
+![PowerApps Add Data Source setup connection](docs-images/PowerApps-azure-blob-storage-connection.png)
 
-Now we can use this connection in a function. Click on the **Send** button and switch to the **Advanced** pane.
+認証されると、データソースペインに AzureBlobStorage が追加されます。
 
-In the OnSelect box type: 
- ``` AzureBlobStorage.CreateFile("images", TextInput1.Text, Camera1.Photo) ```
+![PowerApps Data Added](docs-images/powerapps-data-added.png)
 
+それでは、この接続を組み込みましょう。 **Send** ボタンを選択し、 **詳細設定** ペインを開きます。
 
-![PowerApps Azure Blob Function](docs-images/powerapps-function.JPG)
+OnSelect 欄に下記のように入力します:
 
+```
+AzureBlobStorage.CreateFile("images", TextInput1.Text, Camera1.Photo)
+```
 
-Now we have built an app lets test it in our development environment. In the top right of the screen you will see the toolbar below - press the **Play** button highlighted. This will open a new window with your application running. This will ask for access to your camera to test the app
+![PowerApps Azure Blob Function](docs-images/powerapps-function.png)
+
+さて、開発環境でテストできる状態までアプリケーションを作成できました。それでは、下図のように、画面右上のツールバーから **アプリのプレビュー** （再生）ボタンをクリックしましょう。画面が変わり、アプリケーションが起動します。なお、テストをするためにカメラへのアクセスを許可する必要があるかもしれません。
 
 ![PowerApps Preview your app](docs-images/powerapps-preview-app.JPG)
 
-> Test you app by taking a picture of a dog (or anything at this point). The camera will take a picture - name it - click the send button. Once sent wait a moment and you should recieve an email as your Logic app will have triggered
+> 犬の写真（または他の何か）を撮影してテストしてみましょう。カメラの画像が映ってる部分をクリックすると写真が撮影できます。撮影したら、テキスト入力ボックスに画像の名前（例: dog.png ）を入力し、 Send ボタンをクリックします。しばらくすると Logic App が作動し、分析結果が保存されるでしょう。
 
-![PowerApps Preview your app](docs-images/powerapps-preview-running.JPG)
+![PowerApps Preview your app](docs-images/powerapps-preview-running.png)
 
-Now we are going to **Save** and **Publish** the application so you can use it on your mobile device
+それでは、モバイルデバイスで利用できるようにアプリケーションを **保存** して **共有** しましょう。
 
-Go to the **File** tab in to top toolbar and choose the option on the left pane **Save**. Then click the **save** button.
+上部の **ファイル** タブを開き、左ペインから **保存** を開きます。そして **保存** ボタンをクリックします。
 
-Once saved you will have the **Publish** button appear - select this
+保存できたら、表示された **このアプリを共有する** ボタンをクリックします。
 
-![PowerApps Publish](docs-images/powerapps-publish.JPG)
+![PowerApps Publish](docs-images/powerapps-publish.png)
 
-![PowerApps save](docs-images/powerapps-saved.JPG)
+また、アプリケーションのアイコンの表示を編集することもできます。 **ファイル** メニューの **アプリの設定** を開きましょう。
 
-You can also edit the look of the icon for the application. In the **File** menu go to **App Settings**.
+**アプリの名前とアイコン** では、アプリケーションの背景色を選択したりアイコンを変更することができます。
 
-In **App Name and Icon** select a background color for your application and choose an icon. You can also upload you own. Why not add a dog icon? Download the icon from [here](sample-code/dog-icon.png) and choose the **browse** button to add your own icon
+![PowerApps Change App Settings](docs-images/powerapps-app-settings.png)
 
-![PowerApps Change App Settings](docs-images/powerapps-app-settings.JPG)
+共有したアプリケーションをモバイルデバイスで利用できるようにするには、App store から PowerApps アプリをダウンロードする必要があります。
 
-In order to view your published app on your phone you will need to download the PowerApps app from your app store. 
-
-> For this tutorial the instructions will be for IOS.
+> このチュートリアルでは iOS 向けの手順を紹介します。
 
 ![PowerApps IPhone download](docs-images/powerapps-download.png)
 
-Once the app is download. Open the application and log in with your organizational credentials. Once logged in you should see all your organizations apps listed
+PowerApps アプリをダウンロードできたら、アプリを開き組織アカウントでサインインしてください。サインインすると組織に紐づくアプリケーションの一覧が表示されます。
 
 ![PowerApps apps listed on phone](docs-images\PowerApps-in-PowerApps-on-phone.png)
 
-For you Dog Spotter app we want to add it to your home screen like any other application. Click on the 3 dots (...) and select **pin to home**
+Dog Spotter アプリを他のアプリケーションのようにホーム画面に追加しましょう。3点の部分をタップし、 **Pin to Home** を選択します。
 
 ![PowerApps Pin to home screen](docs-images/powerapps-pin-app.png)
 
-This will open the web browser where you follow the instructions to add it to your home screen. Select the share button.
+するとウェブブラウザが開くので、指示に従ってホーム画面にアプリケーションを追加します。共有ボタンをタップしましょう。
 
 ![PowerApps add to home screen](docs-images/powerapps-add-to-homescreen.png)
 
-Select **Add to Home Screen**
+**Add to Home Screen** をタップします。
 
 ![PowerApps add to home screen using IOS functionality](docs-images/powerapps-add-to-homescreen-button.png)
 
-Provide your application useful name to be shown on your phone and select Add
+必要に応じて使いやすい名前を設定し、 Add ボタンをタップします。
 
 ![PowerApps Home Screen Details](docs-images/powerapps-homescreen-detail.png)
 
-## Congratulations!! 
+**おめでとうございます!!**
 
-The app is now added to your phone home screen and you can open and run the functionality.
+これでアプリケーションがあなたの端末のホーム画面に追加され、利用できるようになりました。
 
-Test the app by taking a picture of a dog and sending it to the cloud.
+犬の写真を撮影してそれをクラウドに送信し、テストしてみましょう！

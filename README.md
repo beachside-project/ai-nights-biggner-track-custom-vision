@@ -19,7 +19,7 @@
 ## セクション :
 
 * **Task 1:** Microsoft Azure Cognitive Services - Custom Vision [Go to Section](#task-1-microsoft-azure-cognitive-services---custom-vision)
-* **Task 2:** 独自の AI をアプリケーションに組み込む - Azure Logic Apps [Go to Section](#task-2-build-custom-ai-into-an-application---azure-logic-apps)
+* **Task 2:** 独自の AI をアプリケーションに組み込む - Azure Logic Apps [Go to Section](#task-2-独自の-ai-をアプリケーションに組み込む---azure-logic-apps)
 
 > このコンテンツが役に立ちそうでしたら、**ボーナスコンテンツ**に進んでみましょう: [**ボーナスコンテンツはこちら**](bonus-content.md)
 
@@ -54,7 +54,7 @@ Microsoft Azure Custom Vision サービスを使用すると、ごくわずか�
   * '作成' をクリック
 * ![Custom Vision Blade Details](/docs-images/custom-vision-azure.JPG)
 
-これで分類器を作成できるようになりましたので、[https://www.customvision.ai](https://www.customvision.ai/) へ進みサインインしてください。サインイン後、画面右上の自身のアカウントをクリックし、'DIRECTORES' が先ほど作成した Azure の ディレクトリになっていることを確認します。
+これで分類器を作成できるようになりましたので、[https://www.customvision.ai](https://www.customvision.ai/) へ進みサインインしてください。サインイン後、画面右上の自身のアカウントをクリックし、'DIRECTORIES' が先ほど作成した Azure の ディレクトリになっていることを確認します。
 
 > 利用規約に同意の上お進みください。
 
@@ -105,7 +105,7 @@ Microsoft Azure Custom Vision サービスを使用すると、ごくわずか�
 
 テストに必要なモデルができました。右上（ 'Train' ボタンの横）にある 'Quick Test' ボタンをクリックします。ローカルの画像を選択したり URL を入力することができるウインドウが表示されます。
 
-テストフォルダー内（dog.zip内の `testset` ）の画像を参照してアップロードします。画像が分析され、何の犬だったか（ Predictions 内の Tag列）および、その結果に対する信頼性（ Predictions 内の Probablity 列）の結果が返されます。
+'Browse local files' ボタンをクリックし、テストフォルダー内（dog.zip内の `testset` ）の画像を参照してアップロードします。画像が分析され、何の犬だったか（ Predictions 内の Tag列）および、その結果に対する信頼性（ Predictions 内の Probablity 列）の結果が返されます。
 
 ![Quick Test](docs-images/quick-test.JPG)
 
@@ -121,11 +121,13 @@ Microsoft Azure Custom Vision サービスを使用すると、ごくわずか�
 
 この画像は Predictions タブから消え、Training Images タブに追加されます。いくつかの画像とタグを追加したら、モデルを再トレーニングして改善するかどうかを確認できます。
 
-アプリケーションでこのモデルを使うには、予測の詳細をみる必要があります。上部のバーの Performance タブに移動し、 **Publish** をクリックし、 公開するイテレーションを判別するために名前を入力します。
+アプリケーションでこのモデルを使うには、予測の詳細をみる必要があります。上部のバーの Performance タブに移動し、 **Publish** をクリックします。
 
 ![Prediction URL Location](docs-images/custom-vision-publish.JPG)
 
-![Prediction URL Name](docs-images/custom-vision-publish-name.JPG)
+'Publish Model' ダイアログで、公開するイテレーションを判別するために **Model name** に名前を入力します。 **Prediction resource** のプルダウンメニューでは、前述で Custom Vision を作成した際に同時に作られている `_Prediction` というサフィックスが付加されたリソースを選択します。（どれかわからない場合は、作成した Custom Vision のリソースグループにあるので確認してください。）入力できたら **Publish** ボタンをクリックします。
+
+![Prediction URL Name](docs-images/custom-vision-publish-name.png)
 
 **Prediction URL** をクリックすると、（画像または画像のURLを使って）Postman で API を呼ぶための URL、ヘッダーやBodyといった設定の全ての情報を得ることができます。
 
@@ -154,7 +156,7 @@ Azure ポータルに移動し、左上左のコーナーにある 'リソース
 
 * **サブスクリプション:** 自身のサブスクリプションを選択
 * **リソースグループ:** このワークショップで利用しているリソースグループを選択 (例 ainights)
-* **Sストレージアカウント名:** (入力必須) 全て英小文字のみで入力。 *例として「ainightsstor(yourname)」や「resultsainights(yourname)」です。一意の名前になるよう自身の名前などを末尾に入力します（かっこは削除してください）。*
+* **ストレージアカウント名:** (入力必須) 全て英小文字のみで入力。 *例として「ainightsstor(yourname)」や「resultsainights(yourname)」です。一意の名前になるよう自身の名前などを末尾に入力します（かっこは削除してください）。*
 * **場所:** 任意の場所を選択
 * **パフォーマンス:** Standard
 * **アカウントの種類:** Blob Storage
@@ -166,9 +168,12 @@ Azure ポータルに移動し、左上左のコーナーにある 'リソース
 ![Create Azure Storage Account](docs-images/create-storage-account.JPG)
 
 デプロイが完了したら、リソースへ移動し、アカウントの設定を確認します。
+
+![Go to Resource](docs-images/go-to-resource.png)
+
 **Blob** を選択してからのストレージアカウントを確認します。
 
-![Select Blob Storage Account](docs-images/select-blobs.JPG)
+![Select Blob Storage Account](docs-images/select-blobs.png)
 
 画像や結果を保存するには、ストレージアカウントにコンテナーを追加する必要があります。
 
@@ -230,7 +235,7 @@ Azure の資格情報を使ってサインインし、Event Grid に接続しま
 
 ![Event Grid Options](docs-images/event-grid-options.JPG)
 
-**新しいステップ** をクリックします。**josn の解析** と入力します（Json の後に半角スペースが入ります）。'データ操作' カテゴリーの 'JSON の解析' をクリックします。
+**新しいステップ** をクリックします。**json の解析** と入力します（Json の後に半角スペースが入ります）。'データ操作' カテゴリーの 'JSON の解析' をクリックします。
 
 * **コンテンツ:** '動的なコンテンツの追加' をクリックし、**本文** を選択
 * **スキーマ:** [logic-app-schema1.json ファイル](sample-code/logic-app-task/logic-app-schema1.json)の値を入力
@@ -243,9 +248,9 @@ Azure の資格情報を使ってサインインし、Event Grid に接続しま
 
 Custom Vision の接続設定がない場合、接続の設定が表示されます。
 
-[https://www.customvision.ai](https://www.customvision.ai/) で **Performance** タブをクリックし、**Prediction URL** をクリックします。ここで Prediction Key と Site URL の情報が取得できます。**また、左パネルに記載のある Publish Name（下図で 'Iteration1'）をメモしておきましょう。次の手順で利用します。**
+[https://www.customvision.ai](https://www.customvision.ai/) で **Performance** タブをクリックし、**Prediction URL** をクリックします。ここで Prediction Key と Site URL の情報が取得できます。**また、 Published as: に表示されている Publish Name（下図で 'dogapp'）をメモしておきましょう。次の手順で利用します。**
 
-![Custom vision - predict url](docs-images/custom-vision-prediction-url.JPG)
+![Custom vision - predict url](docs-images/custom-vision-prediction-url.png)
 
 接続情報を以下を参考に入力します:
 
@@ -259,7 +264,7 @@ Custom Vision の接続設定がない場合、接続の設定が表示されま
 
 次は、Custom Vision の詳細を入力します。
 
-* **Project ID:** Custom Vision のポータルで右上の設定のアイコンをクリックして開き、Project Id の値を入力
+* **Project ID:** Custom Vision のポータルで右上の設定のアイコンをクリックして開き、Project Id の値を取得して入力
   * ![Find Custom Vision Project ID](docs-images/find-project-id.JPG)
 * **Published Name:** 前述の操作で確認した **Published Name** を入力
 * **Image URL:** '動的なコンテンツの追加' をクリックし 'JSON の解析' の中の **url** をクリック
