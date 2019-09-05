@@ -208,7 +208,7 @@ API をテストするには、Postman で新しいリクエストを作成し�
 
 ![PowerApps Blank App](docs-images/powerapps-blank-app.png)
 
-アプリケーションの作成を始めるには、機能を追加する必要があります。下図のように画面上部に **挿入** のメニューをあります。
+アプリケーションの作成を始めるには、機能を追加する必要があります。下図のように画面上部に **挿入** のメニューををクリックして機能を追加していきます。
 
 ![PowerApps Insert Tab](docs-images/powerapps-insert-tab.png)
 
